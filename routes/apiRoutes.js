@@ -23,4 +23,20 @@ module.exports = function (app) {
       res.json(dbExample);
     });
   });
+
+  app.post("/api/resume", function(req, res) {
+    console.log("Resume Data: ");
+    console.log(req.body);
+
+   // var dbQuery = "INSERT INTO resumes (info, summary, education, employment, refs) VALUES (?,?,?,?,?)";
+
+    /*db.query(dbQuery, [req.body.info, req.body.summary, req.body.education, req.body.employment, req.body.refs], function(err, result) {
+      if (err) throw err;
+      console.log("Resume Successfully Saved!");
+      res.end();
+    });*/
+    db.Resume.create(req.body).then(function(newResume){
+      res.json(newResume);
+    });
+  });
 };
