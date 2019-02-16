@@ -1,0 +1,33 @@
+{
+  "name": "P2-3XA-CD",
+  "version": "1.0.0",
+  "description": "Project Two for UW Coding Bootcamp",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/akonenkamp/P2-3XA-CD.git"
+  },
+  "keywords": [
+    "job",
+    "indeed",
+    "indreed"
+  ],
+  "author": "MR.Some Body",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/akonenkamp/P2-3XA-CD/issues"
+  },
+  "homepage": "https://github.com/akonenkamp/P2-3XA-CD#readme",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "express": "^4.16.4",
+    "express-handlebars": "^3.0.0",
+    "serve-static": "^1.13.2"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.9"
+  }
+}
