@@ -3,8 +3,6 @@ const express = require('express');
 const app = express();
 const PORT = process.env.PORT || 5000;
 const path = require('path');
-//Need to "npm install serve-static" in console
-const serveStatic = require('serve-static')                //serveStatic Plugin Line
 const handlebars = require('express-handlebars');
 
 app.engine('.hbs', handlebars({ extname: '.hbs' }));
@@ -14,10 +12,9 @@ app.set("PORT", PORT);
 app.use(express.static(path.join(__dirname, 'assets')));
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', '.hbs');
-app.use(serveStatic(path.join(__dirname, 'views/css'))) //serveStatic Plugin Line
 
 app.get('/', function (req, res) {
-    res.render("index", {title:"Course"});
+    res.render("index", {title:"ofCourse"});
 });
 
 app.get('/search', function (req, res) {

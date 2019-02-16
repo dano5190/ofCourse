@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>OfCourse - Job searching</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+        <div id="mainLogo2">
+            OfCourse
+        </div>
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+        <div class="search-ribbon2">
+            <form method="GET">
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                    <input class="mdl-textfield__input query-input" type="text">
+                    <label class="mdl-textfield__label" for="query">What</label>
+                </div>
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                    <input class="mdl-textfield__input query-input" type="text" id="query" name="l">
+                    <label class="mdl-textfield__label" for="query">Where</label>
+                </div>
+
+                <link rel="stylesheet"
+                    href="https://rawgit.com/MEYVN-digital/mdl-selectfield/master/mdl-selectfield.min.css">
+                <button id="show-dialog" type="button" class="mdl-button">Show Dialog</button>
+                <dialog class="mdl-dialog">
+                    <h4 class="mdl-dialog__title">Advanced search</h4>
+                    <form class="" method="GET">
+                        <div class="mdl-dialog__content">
+                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                <input class="mdl-textfield__input query-input" type="text" id="q" name="q">
+                                <label class="mdl-textfield__label" for="q"></label>
+                            </div>
+
+
+
+                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                <input class="mdl-textfield__input query-input" type="text" id="l" name="l">
+                                <label class="mdl-textfield__label" for="l">Location(city, state, zip code)</label>
+                            </div>
+                            <div id="select_jt"
+                                class="mdl-selectfield mdl-js-selectfield mdl-selectfield--floating-label">
+                                <select id="jt" name="jt" class="mdl-selectfield__select">
+                                    <option value="all">All</option>
+                                    <option value="parttime">Part time</option>
+                                    <option value="fulltime">Full time</option>
+                                    <option value="contract">Contract</option>
+                                    <option value="temporary">Temporary</option>
+                                    <option value="internship">Internship</option>
+                                    <option value="commission">Commission</option>
+                                    <option value="new_grad">New Grad</option>
+                                </select>
+                                <label for="jt" class="mdl-selectfield__label"></label>
+                                <span class="mdl-selectfield__error">Input is not a empty!</span>
+                            </div>
+                            <div id="select_fromage"
+                                class="mdl-selectfield mdl-js-selectfield mdl-selectfield--floating-label">
+                                <select id="fromage" name="fromage" class="mdl-selectfield__select">
+                                    <option value="any">anytime</option>
+                                    <option value="15">within 15 days</option>
+                                    <option value="7">within 7 days</option>
+                                    <option value="3">within 3 days</option>
+                                    <option value="1">since yesterday</option>
+                                    <option value="last">since my last visit</option>
+                                </select>
+                                <label for="fromage" class="mdl-selectfield__label"></label>
+                                <span class="mdl-selectfield__error">Input is not a empty!</span>
+                            </div>
+                            <div id="select_radius"
+                                class="mdl-selectfield mdl-js-selectfield mdl-selectfield--floating-label">
+                                <select id="radius" name="radius" class="mdl-selectfield__select">
+                                    <option value="0">only in</option>
+                                    <option value="10">within 10 kilometers of</option>
+                                    <option selected="" value="25">within 25 kilometers of</option>
+                                    <option value="50">within 50 kilometers of</option>
+                                    <option value="75">within 75 kilometers of</option>
+                                    <option value="100">within 100 kilometers of</option>
+                                </select>
+                                <label for="radius" class="mdl-selectfield__label"></label>
+                                <span class="mdl-selectfield__error">Input is not a empty!</span>
+                            </div>
+                            <div id="select_limit"
+                                class="mdl-selectfield mdl-js-selectfield mdl-selectfield--floating-label">
+                                <select id="limit" name="limit" class="mdl-selectfield__select">
+                                    <option selected="" value="10">10</option>
+                                    <option value="20">20</option>
+                                    <option value="30">30</option>
+                                    <option value="50">50</option>
+                                </select>
+                                <label for="limit" class="mdl-selectfield__label"></label>
+                                <span class="mdl-selectfield__error">Input is not a empty!</span>
+                            </div>
+                        </div>
+                        <div class="mdl-dialog__actions">
+                            <button type="submit" class="mdl-button">Search</button>
+                            <button type="reset" class="mdl-button">Reset</button>
+                            <button type="button" class="mdl-button close">Close</button>
+
+                        </div>
+                    </form>
+                </dialog>
+                <script src="https://rawgit.com/MEYVN-digital/mdl-selectfield/master/mdl-selectfield.min.js"></script>
+                <script>
+                    var dialog = document.querySelector('dialog');
+                    var showDialogButton = document.querySelector('#show-dialog');
+                    if (!dialog.showModal) {
+                        dialogPolyfill.registerDialog(dialog);
+                    }
+                    showDialogButton.addEventListener('click', function () {
+                        dialog.showModal();
+                    });
+                    dialog.querySelector('.close').addEventListener('click', function () {
+                        dialog.close();
+                    });
+                </script>
+                <div>
+                        <button  id="searchBtn2" type="submit"
+                            class="mdl-button query-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+                            Find Jobs
+                        </button>
+                    </div>
+            </form>
+        </div>
+        <main id="result" class="mdl-layout__content">
+            <div  class="mdl-grid portfolio-max-width query-body">
+                {{# each jobs }}
+                <div class="mdl-cell mdl-card mdl-cell mdl-shadow--4dp portfolio-card">
+                    <div class="mdl-card__media"></div>
+                    <div class="mdl-card__title">
+                        <h2 class="mdl-card__title-text">{{ this.title }}</h2>
+                    </div>
+                    <div class="mdl-card__supporting-text">
+                        {{ this.summary }}
+                    </div>
+                    <div class="mdl-card__actions mdl-card--border">
+                        <a id="Readmore" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-button--accent"
+                            href="{{ this.url }}">Read more</a>
+                    </div>
+                </div>
+                {{/each}}
+            </div>
+
+        </main>
+    </div>
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+</body>
+
+</html>

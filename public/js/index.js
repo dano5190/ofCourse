@@ -4,6 +4,20 @@ var $exampleDescription = $("#example-description");
 var $submitBtn = $("#submit");
 var $exampleList = $("#example-list");
 
+//var resInfo = $("#info");
+var resName = $("#username");
+var resEmail =$("#email");
+var resPhone = $("#phone");
+var resSummary = $("#summary");
+var resEdu = $("#education");
+var resEmp = $("#employment");
+var resRefs = $("#refs");
+var buildRes = $("#build");
+var resBody = $("#display");
+
+var searchRes = $("#search-res");
+var resToFind = $("#res-name");
+var foundRes = $("#displaySaved");
 // The API object contains methods for each kind of request we'll make
 var API = {
   saveExample: function(example) {
@@ -26,6 +40,22 @@ var API = {
     return $.ajax({
       url: "api/examples/" + id,
       type: "DELETE"
+    });
+  },
+  saveResume: function(resume){
+    return $.ajax({
+      headers: {
+        "Content-Type": "application/json"
+      },
+      type: "POST",
+      url: "api/resume",
+      data: JSON.stringify(resume)
+    });
+  },
+  getResume: function(rName){
+    return $.ajax({
+      url: "api/resume/" + rName,
+      type: "GET"
     });
   }
 };
@@ -94,6 +124,66 @@ var handleDeleteBtnClick = function() {
   });
 };
 
+var buildResume = function(event){
+  console.log("This was clicked!!!!!");
+  event.preventDefault();
+
+  var resume = {
+   // info: resInfo.val().trim(),
+   username: resName.val(),
+   email: resEmail.val(),
+   phone: resPhone.val(),
+    summary: resSummary.val(),
+    education: resEdu.val(),
+    employment: resEmp.val(),
+    refs: resRefs.val()
+  };
+
+  API.saveResume(resume).then(function(){
+    console.log("Resume was Saved!");
+  });
+var $resume = $("<p>");
+
+var $info = $("<p>").text(resume.username + "\n");
+$info.append(resume.email + "\n");
+$info.append(resume.phone + "\n");
+$resume.append($info);
+
+var $summary = $("<p>").text("__________________________________________________________________________ \n" + resume.summary);
+$resume.append($summary);
+
+var $education = $("<p>").text(resume.education);
+$resume.append($education);
+
+var $employment = $("<p>").text(resume.employment);
+$resume.append($employment);
+
+var $refs = $("<p>").text(resume.refs);
+$resume.append($refs);
+
+  resBody.empty();
+  resBody.append($resume);
+};
+
+var findResume = function(event){
+  console.log("The Resume was found!!!");
+  event.preventDefault();
+
+  API.getResume(resToFind.val().trim()).then(function(data){
+    console.log("this is noise!");
+    console.log("Sending: " + resToFind);
+    console.log( "    Getting: " + data.username);
+    foundRes.append(data.username);
+    foundRes.append(data.email);
+    foundRes.append(data.phone);
+  });
+};
+
 // Add event listeners to the submit and delete buttons
 $submitBtn.on("click", handleFormSubmit);
 $exampleList.on("click", ".delete", handleDeleteBtnClick);
+buildRes.on("click", buildResume);
+searchRes.on("click", findResume);
+/*$(".please-work").on("click", function(){
+  console.log("this is noise!");
+});*/

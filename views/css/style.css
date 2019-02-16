@@ -5,7 +5,7 @@ body {
     background-image:url('bk.jpg');
     background-repeat: no-repeat;
     background-position:bottom;
-    /* background-attachment:cover; */
+    background-attachment: fixed;
     background-size: 110%;
     /* background-color: #67c5cf; */
 }
@@ -124,6 +124,10 @@ white;
     width:120px;
     line-height: 110%;
 }
+#searchBtn2{
+    background-color: #23b1c5;
+}
+
 #show-dialog{
     color:white;
     font-weight: 100;
@@ -148,4 +152,27 @@ border:2px solid #003157;
 #resumeBuilder{
     background-color: #23b1c5;
     border:none;
+}
+
+/* 2nd page */
+#search-ribbon2{
+    margin-top:20%;
+}
+#mainLogo2{
+    margin-left: 10%;
+    font-size: 23px;
+    padding-top:1%;
+    background-color:#e85e5c;
+    width:200px;
+    height:50px;;
+    text-align: center;
+    font-family: "Sans-serif";
+    color:white; 
+}
+#result{
+    
+    height: 30px;
+}
+#Readmore{
+    color:#e85e5c;
 }
