@@ -1,3 +1,47 @@
+body {
+    margin:0;
+    padding:0;
+    background:url(css\bground1.png) ;
+    background-image:url('bk.jpg');
+    background-repeat: no-repeat;
+    background-position:bottom;
+    background-attachment: fixed;
+    background-size: 110%;
+    /* background-color: #67c5cf; */
+}
+
+#mainLogo{
+    margin-left: 10%;
+    font-size: 23px;
+    padding-top:1%;
+    background-color:#e85e5c;
+    width:200px;
+    height:80px;
+    text-align: center;
+    font-family: "Sans-serif";
+    color:white; 
+}
+
+
+h3{
+    margin-left:57%;
+    margin-top:12%;
+   font-size: 60px;
+   font-weight: 400;
+   color:white; 
+   font-family: "Sans-serif";
+}
+
+#subTitle{
+    color:white; 
+    margin-left:58%;
+    font-weight:bold;
+    width: 40%;
+    font-size:150px;
+}
+#wholePage{
+    text-align: center;
+}
 body.index .search-ribbon {
     width: 100%;
     background-color: #ffffff;
@@ -6,8 +50,15 @@ body.index .search-ribbon {
     flex-shrink: 0;
     padding: 20px 30px;
     box-sizing: border-box;
-        height: 75.2vh;
+    height: 75.2vh;
 }
+
+.searchingInput{
+    margin-left:80%;
+    float: none;
+    width:100%;
+}
+
 
 body.index .search-ribbon form {
     margin-top: 12%;
@@ -18,7 +69,8 @@ body.index .mdl-textfield.mdl-js-textfield.is-upgraded {
     margin-right: 20px;
 }
 body.index .mdl-textfield {
-    position: relative;
+    left:50%;
+  
     font-size: 20px;
     display: inline-block;
     box-sizing: border-box;
@@ -44,4 +96,83 @@ body.index .mdl-textfield__input {
 body.search .search-ribbon {
     padding: 20px;
     text-align: center;
+}
+
+#navbar {
+    color: whitesmoke;
+    margin: auto;
+    width: 100%;
+    background-color: 
+white;
+
+}
+
+.search-ribbon {
+    
+    width: 80%;
+   
+    margin-right:0%;
+    float: none;
+
+}
+
+#searchBtn{
+    background-color: #23b1c5;
+    margin-left: 65%;
+    margin-top: 2%;
+    height:35px;
+    width:120px;
+    line-height: 110%;
+}
+#searchBtn2{
+    background-color: #23b1c5;
+}
+
+#show-dialog{
+    color:white;
+    font-weight: 100;
+    
+}
+#show-dialog:hover{
+border:2px solid #003157;
+}
+
+
+.logo{
+    width: 40%;
+    margin-left: 5%;
+    padding-top: 20%;
+}
+
+.card{
+    margin-top:32%;
+    margin-right:8%;
+    float:right;
+}
+#resumeBuilder{
+    background-color: #23b1c5;
+    border:none;
+}
+
+/* 2nd page */
+#search-ribbon2{
+    margin-top:20%;
+}
+#mainLogo2{
+    margin-left: 10%;
+    font-size: 23px;
+    padding-top:1%;
+    background-color:#e85e5c;
+    width:200px;
+    height:50px;;
+    text-align: center;
+    font-family: "Sans-serif";
+    color:white; 
+}
+#result{
+    
+    height: 30px;
+}
+#Readmore{
+    color:#e85e5c;
 }

@@ -14,6 +14,10 @@ var resEmp = $("#employment");
 var resRefs = $("#refs");
 var buildRes = $("#build");
 var resBody = $("#display");
+
+var searchRes = $("#search-res");
+var resToFind = $("#res-name");
+var foundRes = $("#displaySaved");
 // The API object contains methods for each kind of request we'll make
 var API = {
   saveExample: function(example) {
@@ -46,6 +50,12 @@ var API = {
       type: "POST",
       url: "api/resume",
       data: JSON.stringify(resume)
+    });
+  },
+  getResume: function(rName){
+    return $.ajax({
+      url: "api/resume/" + rName,
+      type: "GET"
     });
   }
 };
@@ -155,10 +165,25 @@ $resume.append($refs);
   resBody.append($resume);
 };
 
+var findResume = function(event){
+  console.log("The Resume was found!!!");
+  event.preventDefault();
+
+  API.getResume(resToFind.val().trim()).then(function(data){
+    console.log("this is noise!");
+    console.log("Sending: " + resToFind);
+    console.log( "    Getting: " + data.username);
+    foundRes.append(data.username);
+    foundRes.append(data.email);
+    foundRes.append(data.phone);
+  });
+};
+
 // Add event listeners to the submit and delete buttons
 $submitBtn.on("click", handleFormSubmit);
 $exampleList.on("click", ".delete", handleDeleteBtnClick);
 buildRes.on("click", buildResume);
+searchRes.on("click", findResume);
 /*$(".please-work").on("click", function(){
   console.log("this is noise!");
 });*/

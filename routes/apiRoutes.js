@@ -39,4 +39,14 @@ module.exports = function (app) {
       res.json(newResume);
     });
   });
+
+  app.get("/api/resume/:username", function(req, res){
+    db.Resume.findOne({
+      where:{
+        username: req.params.username
+      }
+    }).then(function(foundR){
+      res.json(foundR);
+    });
+  });
 };

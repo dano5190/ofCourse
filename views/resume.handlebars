@@ -1,4 +1,15 @@
-<div class="container">
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/styles/styles.css" media="screen" title="no title" charset="utf-8">
+  <title>Home Page</title>
+</head>
+
+<body>
+    <div class="container">
     <div class="row">
         <div class="col-8 offset-2">
             <div class="card mt-4">
@@ -17,7 +28,7 @@
                     <textarea id="phone" rows="1" cols="30"></textarea>
 
                     <p>
-                        <strong>Summarize yourself for your job</strong></p>
+                        <strong>Summarize yourself for your job (About 2 or 3 sentences describing your personality and work ethics)</strong></p>
                     <textarea id="summary" rows="8" cols="100"></textarea>
                     <p>
                         <strong>List your education history</strong></p>
@@ -35,6 +46,18 @@
             </div>
         </div>
     </div>
+     <div class="row">
+        <div class = "col-8 offset-2">
+            <div class="card mt-4">
+                <p><strong>Already have a Resume Stored?  Search for it by your name!</strong></p>
+                <textarea id="res-name" rows="1" cols="30"></textarea>
+                <button id = "search-res">Search for Resume</button>
+                <div id="displaySaved" class = "card-body">
+
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="row">
         <div class = "col-8 offset-2">
             <div class="card mt-4">
@@ -48,3 +71,6 @@
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="/js/index.js"></script>
+</body>
+
+</html>
