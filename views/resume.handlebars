@@ -1,46 +1,42 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-  <meta charset="utf-8">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css">
-  <link rel="stylesheet" href="/styles/styles.css" media="screen" title="no title" charset="utf-8">
-  <title>Home Page</title>
-</head>
-
-<body>
-    <div class="container">
+<div class="container">
     <div class="row">
         <div class="col-8 offset-2">
             <div class="card mt-4">
                 <div class="card-body">
-                    <h5 class="card-title">Example</h5>
+                    <h5 class="card-title">Build Your Resume Here!</h5>
                     <p>
-                        <strong>Put your name here</strong></p>
-                    <textarea id="username" rows="1" cols="30"></textarea>
+                        <strong>First and Last Name</strong></p>
+                    <textarea id="username" rows="1" cols="40"></textarea>
                    
 <p>
-                        <strong>Put your email address here</strong></p>
-                    <textarea id="email" rows="1" cols="30"></textarea>
+                        <strong>Email Address</strong></p>
+                    <textarea id="email" rows="1" cols="40"></textarea>
 
                     <p>
-                        <strong>Put your phone number here</strong></p>
-                    <textarea id="phone" rows="1" cols="30"></textarea>
+                        <strong>Phone Number</strong></p>
+                    <textarea id="phone" rows="1" cols="40"></textarea>
 
                     <p>
-                        <strong>Summarize yourself for your job (About 2 or 3 sentences describing your personality and work ethics)</strong></p>
-                    <textarea id="summary" rows="8" cols="100"></textarea>
+                        <strong>Go Ahead and Brag (What sets you apart|Personality|Interests)</strong></p>
+                    <textarea id="summary" rows="8" cols="80"></textarea>
                     <p>
-                        <strong>List your education history</strong></p>
-                    <textarea id="education" rows="8" cols="100"></textarea>
+                        <strong>Education History</strong></p>
+                    <textarea id="education" rows="8" cols="80"></textarea>
                     <p>
-                        <strong>List your employment history</strong></p>
-                    <textarea id="employment" rows="8" cols="100"></textarea>
+                        <strong>Employment History</strong></p>
+                    <textarea id="employment" rows="8" cols="80"></textarea>
                     <p>
-                        <strong>List Any References you may have</strong></p>
-                    <textarea id="refs" rows="8" cols="100"></textarea>
+
+                     <p>
+                        <strong>Skills</strong></p>
+                    <textarea id="skills" rows="8" cols="80"></textarea>
+                    <p>
+
+                        <strong>References</strong></p>
+                    <textarea id="refs" rows="8" cols="80"></textarea>
                     
                     <button id="build" class="please-work">Build Resume!</button>
+                    <button id="send-email" class="btn btn-primary float-right">Send Email</button> 
                     <a href="/">← Back To Home</a>
                 </div>
             </div>
@@ -51,6 +47,7 @@
             <div class="card mt-4">
                 <p><strong>Already have a Resume Stored?  Search for it by your name!</strong></p>
                 <textarea id="res-name" rows="1" cols="30"></textarea>
+                 
                 <button id = "search-res">Search for Resume</button>
                 <div id="displaySaved" class = "card-body">
 
@@ -71,6 +68,3 @@
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="/js/index.js"></script>
-</body>
-
-</html>

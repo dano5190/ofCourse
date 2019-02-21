@@ -28,17 +28,12 @@ module.exports = function (app) {
     console.log("Resume Data: ");
     console.log(req.body);
 
-   // var dbQuery = "INSERT INTO resumes (info, summary, education, employment, refs) VALUES (?,?,?,?,?)";
-
-    /*db.query(dbQuery, [req.body.info, req.body.summary, req.body.education, req.body.employment, req.body.refs], function(err, result) {
-      if (err) throw err;
-      console.log("Resume Successfully Saved!");
-      res.end();
-    });*/
     db.Resume.create(req.body).then(function(newResume){
       res.json(newResume);
     });
   });
+
+//Pulls data from the database
 
   app.get("/api/resume/:username", function(req, res){
     db.Resume.findOne({
@@ -47,6 +42,48 @@ module.exports = function (app) {
       }
     }).then(function(foundR){
       res.json(foundR);
+    });
+  });
+
+  //Email Node Module Route
+  app.get("/api/email/:username", function(req, res){
+
+    db.Resume.findOne({
+      where:{
+        username: req.params.username
+      }
+    }).then(function(foundR){
+      if (!foundR) {
+        console.log("No user with that name is saved in the database.")
+        return
+      }
+
+          //Nodemailer 
+      var nodemailer = require('nodemailer');
+      // var hbs = require('nodemailer-express-handlebars')
+      
+      var transporter = nodemailer.createTransport({
+        service: 'gmail',
+        auth: {
+          user: 'uwstudent7@gmail.com',
+          pass: 'Password7!' 
+        }
+      });
+      
+      const mailOptions = {
+        from: 'ofCourse@gmail.com',
+        to: "uwstudent7@gmail.com",
+        subject: 'Attached is my resume for consideration',
+        html: "I'd love to be considered for the position. Please review my resume and contact me with any questions you may have." + JSON.stringify(foundR.dataValues)
+      };
+            
+      transporter.sendMail(mailOptions, function(error, info){
+        if (error) {
+          console.log(error);
+        }else {
+          console.log('Email sent: ' + info.response);
+        }
+      });
     });
   });
 };
